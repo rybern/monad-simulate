@@ -1,7 +1,7 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE FlexibleContexts #-}
-module Control.Monad.Backtrack (
+module Control.Monad.Simulate (
     MonadSimulate
   , whileExclusiveM
   , backtrack
