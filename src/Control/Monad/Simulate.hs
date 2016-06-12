@@ -4,7 +4,7 @@
 module Control.Monad.Simulate (
     MonadSimulate
   , whileExclusiveM
-  , backtrack
+  , tryM
   ) where
 
 import Control.Monad.State
@@ -21,12 +21,12 @@ class (Monad m, Monad m') => MonadSimulate m m' where
 -- Useful stuff
 
 -- If the state is valid after running altA, run altA, otherwise run altB.
-backtrack :: (MonadSimulate m m') =>
-             m Bool ->
-             m a ->
-             m a ->
-             m' a
-backtrack check altA altB = do
+tryM :: (MonadSimulate m m') =>
+        m Bool ->
+        m a ->
+        m a ->
+        m' a
+tryM check altA altB = do
   isValid <- simulate (altA >> check)
   if isValid
     then perform altA
