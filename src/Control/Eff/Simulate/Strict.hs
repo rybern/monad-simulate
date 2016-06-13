@@ -3,7 +3,7 @@
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE TypeOperators #-}
 {-# LANGUAGE ScopedTypeVariables #-}
-module Control.Eff.Simulate (
+module Control.Eff.Simulate.Strict (
     EffSimulate
   , whileExclusiveM
   , tryM
