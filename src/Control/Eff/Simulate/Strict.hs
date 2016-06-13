@@ -5,14 +5,14 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 module Control.Eff.Simulate (
     EffSimulate
-  --, whileExclusiveM
-  --, tryM
+  , whileExclusiveM
+  , tryM
   ) where
 
 import Control.Eff
-import Control.Eff.State.Lazy
-import Control.Eff.Writer.Lazy
-import Control.Eff.Reader.Lazy
+import Control.Eff.State.Strict
+import Control.Eff.Writer.Strict
+import Control.Eff.Reader.Strict
 import Data.Void
 import Data.Typeable
 
