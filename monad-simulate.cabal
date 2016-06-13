@@ -14,7 +14,9 @@ cabal-version:       >=1.10
 
 library
   exposed-modules:     Control.Monad.Simulate
+                     , Control.Eff.Simulate
   hs-source-dirs:      src
   default-language:    Haskell2010
   build-depends:       base >= 4.7 && < 5
                      , mtl
+                     , extensible-effects
