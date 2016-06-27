@@ -41,6 +41,7 @@ packages:
 # (e.g., acme-missiles-0.3)
 extra-deps: [ extensible-effects-1.11.0.4
             , type-aligned-0.9.6
+            , ether-0.4.0.0
             ]
 
 # Override default flag values for local packages and extra-deps
