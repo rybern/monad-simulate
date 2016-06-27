@@ -6,6 +6,7 @@
 module Control.Eff.Simulate.Strict (
     EffSimulate
   , whileExclusiveM
+  , whileExclusiveM_
   , tryM
   ) where
 
@@ -13,6 +14,7 @@ import Control.Eff
 import Control.Eff.State.Strict
 import Control.Eff.Writer.Strict
 import Control.Eff.Reader.Strict
+import Control.Monad (void)
 import Data.Void
 import Data.Typeable
 
@@ -80,3 +82,9 @@ whileExclusiveM check op = do
             xs <- whileExclusiveM check op
             return (x : xs)
     else return []
+
+whileExclusiveM_ :: EffSimulate r r' =>
+                    Eff r Bool ->
+                    Eff r a ->
+                    Eff r' ()
+whileExclusiveM_ check = void . whileExclusiveM check

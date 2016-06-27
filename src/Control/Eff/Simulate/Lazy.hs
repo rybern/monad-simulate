@@ -6,6 +6,7 @@
 module Control.Eff.Simulate.Lazy (
     EffSimulate
   , whileExclusiveM
+  , whileExclusiveM_
   , tryM
   ) where
 
@@ -14,6 +15,7 @@ import Control.Eff.State.Lazy
 import Control.Eff.Writer.Lazy
 import Control.Eff.Reader.Lazy
 import Data.Void
+import Control.Monad (void)
 import Data.Typeable
 
 class EffSimulate r r' where
@@ -80,3 +82,9 @@ whileExclusiveM check op = do
             xs <- whileExclusiveM check op
             return (x : xs)
     else return []
+
+whileExclusiveM_ :: EffSimulate r r' =>
+                    Eff r Bool ->
+                    Eff r a ->
+                    Eff r' ()
+whileExclusiveM_ check = void . whileExclusiveM check

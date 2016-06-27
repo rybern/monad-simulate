@@ -3,6 +3,7 @@
 module Control.Monad.Simulate.Simulate (
     MonadSimulate (..)
   , whileExclusiveM
+  , whileExclusiveM_
   , tryM
   ) where
 
@@ -30,6 +31,12 @@ tryM check altA altB = do
   if isValid
     then perform altA
     else perform altB
+
+whileExclusiveM_ :: MonadSimulate m m' =>
+                   m Bool ->
+                   m a ->
+                   m' ()
+whileExclusiveM_ check = void . whileExclusiveM check
 
 -- Run op as many times as possible before the state becomes invalid.
 whileExclusiveM :: MonadSimulate m m' =>
