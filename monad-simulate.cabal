@@ -1,5 +1,5 @@
 name:                monad-simulate
-version:             0.2.0.0
+version:             0.2.0.1
 synopsis:            Simple project template from stack
 description:         Please see README.md
 homepage:            https://github.com/rybern/monad-simulate#readme
@@ -14,6 +14,9 @@ cabal-version:       >=1.10
 
 library
   exposed-modules:     Control.Monad.Simulate
+                     , Control.Monad.Simulate.Simulate
+                     , Control.Monad.Simulate.Ether
+                     , Control.Monad.Simulate.MTL
                      , Control.Eff.Simulate.Lazy
                      , Control.Eff.Simulate.Strict
   hs-source-dirs:      src
